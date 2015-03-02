@@ -18,7 +18,7 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels)
             %compute Hidden unit values
             H = softmax([In_Out(i,1:end-1) * W_in(1:end,:) 1]');
             %compute output
-            Output = round(softmax((W_out*H)));
+            Output = softmax((W_out*H));
             %randomly update weights for hidden to output layer (bias inc)
             t = zeros(10,1);
             t(In_Out(i,end)+1) = 1;
@@ -32,7 +32,7 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels)
             end
             deltaj = H(1:end-1).*(1-H(1:end-1)).*(W_out(:,1:end-1)' * deltak);
             %update weights from input units to output units
-            for j=1:i
+            for j=1:785
                 deltaw = (lr*deltaj*In_Out(i,j))' + 0.9 * deltaw_in(j,1:end);
                 W_in(j,1:end) = W_in(j,1:end) + deltaw;
                 deltaw_in(j,1:end) = deltaw;
@@ -42,10 +42,11 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels)
         for j=1:10
             In_Out(j,end)+1
             H = softmax([In_Out(j,1:end-1) * W_in(1:end,:) 1]');
-            Output = round(softmax((W_out*H)));
+            Output = softmax((W_out*H));
             t = zeros(10,1);
             t(In_Out(j,end)+1) = 1;
-            if (~isequal(Output,t))
+            [m i] = max(Output);
+            if (~isequal(i,In_Out(j,end)+1))
                 ec = ec + 1;
             end
         end
