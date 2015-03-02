@@ -12,9 +12,9 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels)
     error = 1;
     epoch = 0;
     ec = 0;
+    batchsize = 20;
     while ((epoch < max_epochs) && (error > error_threshold))
-        %i = randi(60000)
-        for i=1:10
+        for i=1:batchsize
             %compute Hidden unit values
             H = softmax([In_Out(i,1:end-1) * W_in(1:end,:) 1]');
             %compute output
@@ -25,21 +25,21 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels)
             %compute delta k's for output layer
             deltak = t - Output;
             %update weights from hidden units to output units
-            for j=1:h+1
+            for j=randsample(randperm(h+1),8)
                 deltaw =  lr*deltak*H(j) + 0.9 * deltaw_out(1:end,j);
                 W_out(1:end,j) = W_out(1:end,j) + deltaw;
                 deltaw_out(1:end,j) = deltaw;
             end
             deltaj = H(1:end-1).*(1-H(1:end-1)).*(W_out(:,1:end-1)' * deltak);
             %update weights from input units to output units
-            for j=1:785
+            for j=randsample(randperm(785),222)
                 deltaw = (lr*deltaj*In_Out(i,j))' + 0.9 * deltaw_in(j,1:end);
                 W_in(j,1:end) = W_in(j,1:end) + deltaw;
                 deltaw_in(j,1:end) = deltaw;
             end
         end
         %compute error
-        for j=1:10
+        for j=1:batchsize
             In_Out(j,end)+1
             H = softmax([In_Out(j,1:end-1) * W_in(1:end,:) 1]');
             Output = softmax((W_out*H));
@@ -50,7 +50,7 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels)
                 ec = ec + 1;
             end
         end
-        error = ec/10
+        error = ec/batchsize
         ec = 0;
         epoch = epoch + 1
     end
