@@ -1,5 +1,5 @@
 function [e,imlabmissed] = testMNIST(images,labels,W_in,W_out)
-    In_Out = [images' ones(images',1) labels];
+    In_Out = [images' ones(length(images'),1) labels];
     ec = 0;
     f = @(u)exp(u)./sum(exp(u));
     misclassified = zeros(10,11);
