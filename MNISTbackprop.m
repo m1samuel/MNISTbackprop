@@ -28,7 +28,7 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels,bs)
         t(In_Out(i,end)+1) = 1;
         %compute delta k's for output layer
         deltak = t - Output;
-        %compute delta j's for output layer
+        %compute delta j's for hidden layer
         deltaj = H(1:end-1).*(1-H(1:end-1)).*(W_out(:,1:end-1)' * deltak);
         %update weights from hidden units to output units
         deltaw =  lr*deltak*H' + 0.9 * deltaw_out;
