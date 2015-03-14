@@ -3,8 +3,8 @@ function [W_in,W_out] = MNISTbackprop(g,h,lr,images,labels,bs)
     % g is the hidden unit's activation function
     % h is the number of hidden units to use
     % lr is the learning rate (need to implement adaptive learning rate)
-    % images is an n by k matrix of handwritten digits where n is the number 
-    %      of training images and n is the number of pixels each image has.
+    % images is a k by n matrix of handwritten digits where n is the number 
+    %      of training images and k is the number of pixels each image has.
     % labels is n by 1 vector of known values for the handwritten digits
     % bs is the batch size.
     %
