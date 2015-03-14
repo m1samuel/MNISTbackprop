@@ -1,10 +1,22 @@
-function [W_in,W_out] = MNISTbackprop(h,lr,images,labels,bs)
+function [W_in,W_out] = MNISTbackprop(g,h,lr,images,labels,bs)
+    % --------------------- Input Params ------------------------------
+    % g is the hidden unit's activation function
+    % h is the number of hidden units to use
+    % lr is the learning rate (need to implement adaptive learning rate)
+    % images is an n by k matrix of handwritten digits where n is the number 
+    %      of training images and n is the number of pixels each image has.
+    % labels is n by 1 vector of known values for the handwritten digits
+    % bs is the batch size.
+    %
+    % ------------------------ Output ---------------------------------
+    % W_in is a matrix of weights from the input layer to the hidden layer
+    % W_out is a matrix of weights from the hidden layer to the output
+    % layer.
+    % -----------------------------------------------------------------
     In_Out = images';
     In_Out = [In_Out ones(length(In_Out),1) labels];
-    %In_Out = In_Out(randperm(size(In_Out,1)),:);
     W_in = (-2/sqrt(785)).*rand(785,h) + 1/sqrt(785);
     W_out = (-2/sqrt(785)).*rand(10,h+1) + 1/sqrt(785);
-    g = @(u) 1.7159*tanh(2*u/3);
     syms u;
     g_prime = matlabFunction(diff(g(u)));
     max_epochs = 10;
@@ -27,9 +39,9 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels,bs)
             Output = softmax((W_out*H));
             t = zeros(10,1);
             t(In_Out(i,end)+1) = 1;
-            %compute delta k's for output layer
+            %compute deltas for output layer
             deltak = t - Output;
-            %compute delta j's for hidden layer
+            %compute deltas for hidden layer
             deltaj = g_prime(H(1:end-1)).*(W_out(:,1:end-1)' * deltak);
             %update weights from hidden units to output units
             deltaw_out =  lr*(deltak*H' + 0.9 * deltaw_out);
@@ -46,7 +58,6 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels,bs)
             if (~isequal(i,In_Out(j,end)+1))
                 ec = ec + 1;
             end
-            
         end
         error = ec/batchsize
         ec = 0;
