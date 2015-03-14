@@ -45,8 +45,7 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels,bs)
             [~,i] = max(Output);
             if (~isequal(i,In_Out(j,end)+1))
                 ec = ec + 1;
-            end
-            
+            end            
         end
         error = ec/batchsize
         ec = 0;

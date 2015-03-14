@@ -8,7 +8,7 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels,bs)
     syms u;
     g_prime = matlabFunction(diff(g(u)));
     max_epochs = 10000;
-    error_threshold = .005;
+    error_threshold = .02;
     error = 1;
     epoch = 0;
     ec = 0;
