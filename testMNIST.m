@@ -1,7 +1,7 @@
 function [e,imlabmissed] = testMNIST(images,labels,W_in,W_out)
     In_Out = [images' ones(length(images'),1) labels];
     ec = 0;
-    f = @(u)exp(u)./sum(exp(u));
+    g = @(u) 1.7159*tanh(2*u/3);
     misclassified = zeros(10,11);
     % misclassified is a matrix where the first column is
     % what the digit really was and the corresponding rows
@@ -9,9 +9,9 @@ function [e,imlabmissed] = testMNIST(images,labels,W_in,W_out)
     imlabmissed = zeros(10000,785);
     for i=1:length(images)
         %compute Hidden unit values
-        H = f([In_Out(i,1:end-1) * W_in(1:end,:) 1]');
+        H = g([In_Out(i,1:end-1) * W_in(1:end,:) 1]');
         %compute output
-        Output = f((W_out*H));
+        Output = softmax((W_out*H));
         [~,j] = max(Output);
         if (~isequal(j,In_Out(i,end)+1))
             imlabmissed(i,:) = [In_Out(i,1:end-2) In_Out(i,end)];
@@ -23,4 +23,3 @@ function [e,imlabmissed] = testMNIST(images,labels,W_in,W_out)
     misclassified
     e = ec/10000
 end
-

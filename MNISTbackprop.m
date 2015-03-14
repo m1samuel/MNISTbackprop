@@ -7,8 +7,8 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels,bs)
     g = @(u) 1.7159*tanh(2*u/3);
     syms u;
     g_prime = matlabFunction(diff(g(u)));
-    max_epochs = 10000;
-    error_threshold = .02;
+    max_epochs = 10;
+    error_threshold = .005;
     error = 1;
     epoch = 0;
     ec = 0;
@@ -19,7 +19,7 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels,bs)
         deltaw_in = zeros(785,h);
         deltaw_out = zeros(10,h+1);
         %i = randi(batchsize);
-        %In_Out = In_Out(randperm(size(In_Out,1)),:);
+        In_Out = In_Out(randperm(size(In_Out,1)),:);
         for i = 1:batchsize
             %compute Hidden unit values
             H = g([In_Out(i,1:end-1) * W_in(1:end,:) 1]');
@@ -45,7 +45,8 @@ function [W_in,W_out] = MNISTbackprop(h,lr,images,labels,bs)
             [~,i] = max(Output);
             if (~isequal(i,In_Out(j,end)+1))
                 ec = ec + 1;
-            end            
+            end
+            
         end
         error = ec/batchsize
         ec = 0;
