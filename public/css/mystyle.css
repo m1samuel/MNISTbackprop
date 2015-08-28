@@ -1,0 +1,248 @@
+* {
+margin: 0 0 0 0;
+padding: 0 0 0 0}
+body {
+max-width: 1440px;
+margin: 0 auto;
+color: #333333;
+font-family:  Trebuchet MS , arial , Sans , verdana, tahoma , serif;
+font-size: 18px;
+font-style: normal;
+font-weight:normal;
+background: linear-gradient(#e0e0e2, #fffaf0); /* Standard syntax */}
+h1 , h2 {font-weight: lighter}
+img , form input, form textarea {
+max-width: 100%;}
+/* For images swaps- class image1 or image2 - see media queries */
+.image1 {
+margin: .5% 1%;
+box-shadow: 2px 2px 4px #202023;
+float: right}
+.image2 {display:none}
+header {
+width: 100%;
+float: left;
+background: linear-gradient(to bottom right , #cd4000,#ffffff);} /* can affect performance - solid bkgs more efficient*/
+header h1 {
+font-size: 30px;
+color: #fefeff;
+text-shadow: 1px 1px 1px #000004;
+float: left;
+margin: 1% 0 1% 5%;}
+.slogan {
+color:#000003;
+font-size: 20px;
+text-shadow: none;
+font-style: oblique;}
+nav {
+width: 90%;
+background: #2e2e2e;
+padding: 0 0;
+float: left;
+margin: 1% 5% }
+/*  horizontal navbar  */
+.hnavbar{
+	list-style:none;
+	margin-bottom: 0;
+  	float:left;
+	position:relative;
+	z-index:5;
+	width: 100%;
+   
+}
+.hnavbar li{
+	float:left;
+	margin-right:10px;
+	margin-bottom:1px;
+	position:relative;}
+.hnavbar a{
+	display:block;
+	padding:5px;
+	color:#fffffe;
+	background:#2e2e2f;
+	text-decoration:none;
+border: solid #696969 1px}
+/*--- DROPDOWN ---*/
+.hnavbar ul{
+	background: transparent;
+	list-style:none;
+	position:absolute;
+	left:-9999px; 
+z-index: 10}
+.hnavbar ul li{
+	padding-top: 5px;
+	float:none;}
+.hnavbar ul a{
+	white-space:nowrap;}/*Change to wrap for long links*/
+.hnavbar li:hover ul{left:0;}
+.hnavbar li:hover a{ 
+color: #fefefe;
+background:#cdcdcd;
+text-shadow: 1px 1px 1px #000001;
+box-shadow: -1px -1px 2px #000001 inset}
+
+.hnavbar li:hover ul li a:hover{
+	background:#bbbbbb;
+box-shadow: 1px 1px 2px #000001 inset}
+.main {
+width: 59%;
+float: left;
+padding: 0 4% 0 4%;
+margin: 1% 2% 1% 0;
+background: #ffffff;
+border: solid #d0d0d0 1px;
+border-radius: 4px;}
+.right-container {
+float: right;
+width: 30%;
+padding: 0 0;
+margin: 1% 0;}
+
+
+.right , .right-bottom {
+width: 92%
+float: right !important;
+padding: 0 4%;
+margin: 4% 0;
+background: #ffffff;
+border: solid #d0d0d0 1px;
+border-radius: 4px;}
+.main-single-col {
+width: 90%;
+background: #ffffff;
+float: left;
+padding: 0 5%;
+border: solid #d0d0d0 1px;
+border-radius: 4px;
+margin: 1% 0;}
+
+.main h1,.main-single-col h1, .right h1 , .right-bottom h1 {
+font-size : 28px;
+text-align : center;
+color : #00000e;
+padding: 1% 0 }
+.main h2, .main-single-col h2 , .right h2 , .right-bottom h2 {
+font-size : 24px;
+text-align :center;
+color : #00000e;
+padding: 1% 0  }
+p.clear {
+  clear:both}
+.main p,.main-single-col p , .right p , .right-bottom p {
+text-align : left;
+text-indent : 16px ;
+padding: 1% 1% }
+.main-single-col form {
+text-align : left;
+text-indent : 0px ;
+padding: 1% 0 ;
+line-height: 200%}
+footer {
+width: 100%;
+ background: #2e2e2e;
+padding: 1% 0;
+float: left;}
+footer p {
+color: #fefeff;
+text-align : center;
+}
+footer p a {
+color: #c0c0c0}
+
+
+.mediaq {
+width: 96%;
+color: #feffff;
+background: #2e2e2e;
+padding: 2% 2%;
+float: left}
+.mediaq code {display: block; width: 98%; margin: 0 auto;font-size: 14px;}
+/* Media Queries for device size adjustment */
+@media all and (max-width:1440px) {
+.main{width: 55%}
+.right-container {width: 34%}
+header h1 {font-size:28px;}
+.image1 {max-width: 50%}
+}
+@media all and (max-width:1280px) {
+header h1 {font-size:24px;}
+.main h1 , .main-single-col h1 {font-size:24px}
+.main h2.center , .main h2 , .right h2 , .right-bottom h2 , .main-single-col h2 , .main-single-col h2.center {font-size:20px}
+}
+@media all and (max-width:1024px) {
+.main{width: 50%}
+.right-container {width: 39%}
+.image1 {display:none}
+.image2 {display:block; float:right; margin: 0 1%}
+}
+@media all and (max-width:960px) {
+body {font-size: 16px;}
+header h1 {font-size:22px;}
+.slogan {font-size:18px}
+.main{width: 45%}
+.right-container {width: 44%}
+.main h1 , .main-single-col h1 {font-size:22px}
+.main h2.center , .main h2  , .right h2 , .right-bottom h2 , .main-single-col h2 , .main-single-col h2.center {font-size:18px}
+.image2 {
+float: none;
+   display: block;
+max-width: 99%;
+margin: 0 auto}
+}
+@media all and (max-width:650px) {
+.content-background , .main , .right-container {
+width: 90% !important;
+display: block !important;
+padding:0 5% !important;
+margin: 0 0% !important;
+border: none}
+.main h1  , .main-single-col h1{font-size:20px}
+}
+@media all and (max-width: 500px) {
+header , nav , .content-background , .main , .right-container ,
+.main-single-col , .main-single-col p,  .hnavbar, .hnavbar li ul, footer , form {
+width: 90% !important;
+display: block !important;
+padding:0 5% !important;
+margin: 0 0 !important;
+border: none;}
+header h1 {font-size: 20px;float: none; text-align:center;padding: 0 0 ;margin: 0 0}
+.slogan {font-size:18px}
+.main h1 , .main h2 , .main h2.center , .right, .right-bottom h2{float: none; text-align: center}
+.hnavbar {font-size: 18px}
+.hnavbar li {
+width: 100%;
+text-align: center;
+margin: 1px 0;
+}
+.hnavbar li a {
+padding: 5% 0;
+
+}
+
+.hnavbar li ul {
+display:block;
+width: 75%;
+z-index: 10;
+}
+
+.hnavbar li ul li{
+display:block;
+width: 75%;
+margin: 0 0 !important;
+}
+
+.hnavbar li ul li a{
+border: none}
+
+.image1 {display:none}
+.image2 {
+float: none;
+display: block;
+max-width: 99%;
+margin: 0 auto}
+}
+@media all and (max-width: 300px) {
+header h1, .main h1 , .main-single-col h1 {font-size:16px}
+.slogan , .main h2.center , .main h2  , .right h2 , .right-bottom h2 , .main-single-col h2 , .main-single-col h2.center {font-size:16px}
+}
