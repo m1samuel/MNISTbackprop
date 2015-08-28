@@ -15,7 +15,7 @@ run lambda { |env|
 }
 end
 
-map "/contact" do
+map "/contact.html" do
 run lambda { |env|
     [
         200,
