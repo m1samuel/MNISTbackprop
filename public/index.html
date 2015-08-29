@@ -16,17 +16,9 @@
         </header>
         <nav>
         <ul class="hnavbar">
-            <li><a href="index.html">Home</a></li>
-            <li><a href="#heading">Media Queries</a>
-                <ul>
-                <li><a href="#heading">Image Swap</a></li>
-                <li><a href="#heading">Restructure</a></li>
-                <li><a href="#heading">Drop Down</a></li>
-                </ul>
-            </li>         
-            <li><a href="https://github.com/sdsc/p3dfft/archive/master.zip">Download</a></li>
+            <li><a href="index.html">Home</a></li>       
+            <li><a href="download.html">Download</a></li>
             <li><a href="https://github.com/sdsc/p3dfft">Github</a></li>
-            <li><a href="https://github.com/sdsc/p3dfft">Wiki</a></li>
             <li><a href="#heading">Contact</a>
                 <ul>
                 <li><a href="#heading">About Us</a></li>
@@ -40,12 +32,12 @@
             on parallel platforms. 3D FFT is an important algorithm for simulations in a wide range of fields, including 
             studies of turbulence, climatology, astrophysics and material science. This project was initiated at 
             <a href="http://www.sdsc.edu" rel="nofollow">San Diego Supercomputer Center (SDSC)</a> at UC San Diego by its main 
-            author Dmitry Pekurovsky, Ph.D. </p>
+            author Dmitry Pekurovsky, Ph.D.</p>
         
         <p>P3DFFT uses 2D, or pencil, decomposition. This overcomes an important limitation to scalability inherent in FFT 
             libraries implementing 1D (or slab) decomposition: the number of processors/tasks used to run this problem in 
             parallel can be as large as N^2, were N is the linear problem size. This approach has shown good scalability up to 
-            131,072 cores. P3DFFT is optimized for large data sets. </p>
+            131,072 cores. P3DFFT is optimized for large data sets.</br>
         
         <p>P3DFFT is written in Fortran90/MPI and is optimized for parallel performance. C interface is available, as are 
             detailed documentation and examples in both Fortran and C.  A configure script is supplied for ease of 
@@ -53,22 +45,25 @@
             <a href="http://fftw.org/" rel="nofollow">Fastest Fourier Transform in the West</a> (FFTW) or IBM&#x27;s 
             <a href="http://www-03.ibm.com/systems/software/essl/index.html" rel="nofollow">ESSL</a>.</p>
         
-        <p>In the forward transform, given an input of an array of 3D real values, an output of 3D complex array of Fourier 
-            coefficients is returned. Current features include:  
-        <ol><li>real-to-complex/complex-to-real FFT in 3D </li>
-            <li>real-to-complex FFT in 2D followed by sine/cosine/Chebyshev/empty transform, and the reverse for backward 
-                transform.  </li>
-            <li>pruned transforms (less than full input or output) </li>
-            <li>in-place or out-of-place transforms </li>
-            <li>multi-variable transforms </li></ol>
-        For more information see the <a href="/p/p3dfft/wiki/UserGuide">User Guide</a>. For installation instructions 
-        <a href="/p/p3dfft/wiki/Install">click here</a>.</p>
+    <p>In the forward transform, given an input of an array of 3D real values, an output of 3D complex array 
+            of Fourier coefficients is returned. Current features include:
+    </p>  
+    <ul>
+        <li>real-to-complex/complex-to-real FFT in 3D </li>
+        <li>real-to-complex FFT in 2D followed by sine/cosine/Chebyshev/empty transform, and the reverse for 
+            backward transform.  </li>
+        <li>pruned transforms (less than full input or output) </li>
+        <li>in-place or out-of-place transforms </li>
+        <li>multi-variable transforms </li>
+    </ul>
+    <p>For more information see the <a href="/p/p3dfft/wiki/UserGuide">User Guide</a>. For installation 
+        instructions <a href="/p/p3dfft/wiki/Install">click here</a>.</p>
     
     <h2><a name="Citation_information"></a>Citation information<a href="#Citation_information" class="section_anchor"></a></h2>
     <p>Please acknowledge/cite use of P3DFFT as follows:  D. Pekurovsky, P3DFFT: a framework for parallel computations of 
         Fourier transforms in three dimensions, SIAM Journal on Scientific Computing 2012, Vol. 34, No. 4, pp. C192-C209. 
         This paper can be obtained 
-        <a href="http://p3dfft.googlecode.com/svn/docs/P3DFFT_SISC_final.pdf" rel="nofollow">here</a>.  </p>
+        <a href="http://p3dfft.googlecode.com/svn/docs/P3DFFT_SISC_final.pdf" rel="nofollow">here</a>.</p>
     
     <h2><a name="Version_History"></a>Version History<a href="#Version_History" class="section_anchor"></a></h2>
     <p>2.7.1 - Added multi-variable transforms (p3dfft_ftran_r2c_many, p3dfft_btran_c2r_many) </p>
@@ -87,10 +82,14 @@
         computational science projects where 3D FFT and related transforms are applied.  </p>
     
     <h2><a name="Future_work"></a>Future work<a href="#Future_work" class="section_anchor"></a></h2>
-    <ul><li>Hybrid MPI/OpenMP </li><li>One-sided communication </li><li>Generalized data layout options </li></ul>
+    <ul>
+        <li>Hybrid MPI/OpenMP </li>
+        <li>One-sided communication </li>
+        <li>Generalized data layout options </li>
+    </ul>
     <p class="clear">&nbsp;</p>
     <footer>
-        <p>&copy; COPYRIGHT 2014-2015 ALL RIGHTS RESERVED www.yourdomain.com</p> 
+        <p>&copy; COPYRIGHT 2014-2015 ALL RIGHTS RESERVED www.p3dfft.net</p> 
         <p><SCRIPT type="text/javascript">
 
             <!--

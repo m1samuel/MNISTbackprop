@@ -3,27 +3,42 @@ use Rack::Static,
     :root => "public"
 
 map "/" do
-run lambda { |env|
-    [
-	200,
-	{
-		'Content-Type' => 'text/html',
-		'Cache-Control' => 'public, max-age=86400'
-	},
-	File.open('public/index.html', File::RDONLY)
-    ]
-}
+    run lambda { |env|
+        [
+            200,
+            {
+                'Content-Type' => 'text/html',
+                'Cache-Control' => 'public, max-age=86400'
+                },
+            File.open('public/index.html', File::RDONLY)
+            ]
+        }
 end
 
 map "/contact.html" do
-run lambda { |env|
-    [
-        200,
-        {
+    run lambda { |env|
+        [
+            200,
+            {
                 'Content-Type' => 'text/html',
                 'Cache-Control' => 'public, max-age=86400'
-        },
-        File.open('public/contact.html', File::RDONLY)
-    ]
-}
+                },
+            File.open('public/contact.html', File::RDONLY)
+            ]
+        }
 end
+
+map "/download.html" do
+    run lambda { |env|
+        [
+            200,
+            {
+                'Content-Type' => 'text/html',
+                'Cache-Control' => 'public, max-age=86400'
+                },
+            File.open('public/download.html', File::RDONLY)
+            ]
+        }
+end
+                
+    

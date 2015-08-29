@@ -1,6 +1,7 @@
 * {
 margin: 0 0 0 0;
 padding: 0 0 0 0}
+
 body {
 margin: auto
 max-width: 1440px;
@@ -9,20 +10,28 @@ font-family:  Trebuchet MS , arial , Sans , verdana, tahoma , serif;
 font-size: 18px;
 font-style: normal;
 font-weight:normal;
-background: linear-gradient(#e0e0e2, #fffaf0); /* Standard syntax */}
-h1 , h2 {font-weight: lighter}
+background: linear-gradient(#e0e0e2, #fffaf0);
+}
+
+h1{
+    font-weight: lighter;
+}
+h2 {
+    
+    margin-top: 0.1cm;
+}
 img , form input, form textarea {
-max-width: 100%;}
-/* For images swaps- class image1 or image2 - see media queries */
-.image1 {
-margin: .5% 1%;
-box-shadow: 2px 2px 4px #202023;
-float: right}
-.image2 {display:none}
-header {
-width: 100%;
-float: left;
-background: linear-gradient(to bottom right , #cd4000,#ffffff);} /* can affect performance - solid bkgs more efficient*/
+    max-width: 100%;
+}
+p{
+    margin: 0.5cm 0cm 0cm 0.5cm;
+}
+
+ul {
+ list-style: disc;
+}
+
+efficient*/
 header h1 {
 font-size: 30px;
 color: #fefeff;
@@ -35,11 +44,11 @@ font-size: 20px;
 text-shadow: none;
 font-style: oblique;}
 nav {
-width: 90%;
+width: 100%;
 background: #2e2e2e;
 padding: 0 0;
 float: left;
-margin: 1% 5% }
+}
 /*  horizontal navbar  */
 .hnavbar{
 	list-style:none;
@@ -48,7 +57,6 @@ margin: 1% 5% }
 	position:relative;
 	z-index:5;
 	width: 100%;
-   
 }
 .hnavbar li{
 	float:left;
@@ -64,9 +72,10 @@ margin: 1% 5% }
 border: solid #696969 1px}
 /*--- DROPDOWN ---*/
 .hnavbar ul{
+    display: inline-block;
 	background: transparent;
 	list-style:none;
-	position:absolute;
+	position: absolute;
 	left:-9999px; 
 z-index: 10}
 .hnavbar ul li{
@@ -129,7 +138,7 @@ padding: 1% 0  }
 p.clear {
   clear:both}
 .main p,.main-single-col p , .right p , .right-bottom p {
-text-align : left;
+text-align: center;
 text-indent : 16px ;
 padding: 1% 1% }
 .main-single-col form {
