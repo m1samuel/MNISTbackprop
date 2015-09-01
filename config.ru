@@ -1,5 +1,5 @@
 use Rack::Static,
-    :urls => ["/images", "/js", "/css"],
+    :urls => ["/images", "/css"],
     :root => "public"
 
 map "/" do
@@ -28,7 +28,7 @@ map "/contact.html" do
         }
 end
 
-map "/download.html" do
+map "/install.html" do
     run lambda { |env|
         [
             200,
@@ -36,9 +36,20 @@ map "/download.html" do
                 'Content-Type' => 'text/html',
                 'Cache-Control' => 'public, max-age=86400'
                 },
-            File.open('public/download.html', File::RDONLY)
+            File.open('public/install.html', File::RDONLY)
+            ]
+        }
+end        
+
+map "/userguide.html" do
+    run lambda { |env|
+        [
+            200,
+            {
+                'Content-Type' => 'text/html',
+                'Cache-Control' => 'public, max-age=86400'
+                },
+            File.open('public/userguide.html', File::RDONLY)
             ]
         }
 end
-                
-    
